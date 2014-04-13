@@ -463,5 +463,6 @@ $levelkondisi_sementara_index=0;
 
 	// echo "<pre>next";
 	// print_r($levelkondisi_next);
+echo "<br>[ endofhack ]";
 ?>
 
