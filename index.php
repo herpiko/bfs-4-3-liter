@@ -306,7 +306,7 @@ $levelkondisi_sementara_index=0;
 	echo "<div style=\"background-color:#FDF5CF;padding:10px;width:70px;text-align:center\">target :<br>";
 	echo "x = ".$x_target."<br>";
 	echo "y = ".$y_target."<br></div>";
-	echo "The solution are marked in <div class=\"solution\">chocolate square</div>. It isnt there? Try to increase the limit.";
+	echo "The solution is marked in <div class=\"solution\">chocolate square</div>. It isnt there? Try to increase the limit.";
 	
 	
 	echo "<br>";	
