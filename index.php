@@ -430,6 +430,11 @@ $levelkondisi_sementara_index=0;
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['x']=$key['x'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['y']=$key['y'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['aturan']=$key['aturan'];
+						$tabelsolusi_index_++;
+						$tabelsolusi[$tabelsolusi_index_]['x']=$key['x'];
+						$tabelsolusi[$tabelsolusi_index_]['y']=$key['y'];
+						$tabelsolusi[$tabelsolusi_index_]['aturan']=$key['aturan'];
+						$tabelsolusi[$tabelsolusi_index_]['solved']=1;
 						$ketemu=1;
 						$levelkondisi_next_index_++;
 						echo "</div>";
@@ -442,8 +447,13 @@ $levelkondisi_sementara_index=0;
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['x']=$key['x'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['y']=$key['y'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['aturan']=$key['aturan'];
-						
 						$levelkondisi_next_index_++;
+						$tabelsolusi_index_++;
+						$tabelsolusi[$tabelsolusi_index_]['x']=$key['x'];
+						$tabelsolusi[$tabelsolusi_index_]['y']=$key['y'];
+						$tabelsolusi[$tabelsolusi_index_]['aturan']=$key['aturan'];
+						
+						
 						echo "</div>";
 					}
 
@@ -482,6 +492,30 @@ $levelkondisi_sementara_index=0;
 
 	// echo "<pre>next";
 	// print_r($levelkondisi);
+
+echo "<table>";
+echo "<tr>";
+echo "<td><strong>Langkah</strong></td>";
+echo "<td><strong>Kondisi</strong></td>";
+echo "<td><strong>Aturan</strong></td>";
+echo "</tr></strong>";
+echo "<br>";
+echo "<br>";
+$langkahindex=1;
+foreach ($tabelsolusi as $key) {
+	
+	echo "<tr>";
+	echo "<td>".$langkahindex."</td>";
+	echo "<td>(".$key['x'].",".$key['y'].")</td>";
+	echo "<td>".$key['aturan']."</td>";
+	echo "</tr>";
+	if ($key['solved']==1) {
+		break;
+	}
+	$langkahindex++;
+}
+echo "</table>";
+
 echo "<p>";
 if ($ketemu!=1) {
 	echo "<div style=\"background-color:red;color:white;padding:5px\">Solusi tidak ditemukan<br>";
