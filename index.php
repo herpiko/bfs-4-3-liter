@@ -1,4 +1,21 @@
 <style>
+#blanket {
+background-color:#111;
+opacity: 0.65;
+filter:alpha(opacity=65);
+position:absolute;
+z-index: 9001;
+top:0px;
+left:0px;
+width:100%;
+}
+#popUpDiv {
+position:absolute;
+background-color:#eeeeee;
+width:300px;
+height:300px;
+z-index: 9002;
+}
 .level
 {
 	display: inline-block;
@@ -306,7 +323,7 @@ $levelkondisi_sementara_index=0;
 	echo "<div style=\"background-color:#FDF5CF;padding:10px;width:70px;text-align:center\">target :<br>";
 	echo "x = ".$x_target."<br>";
 	echo "y = ".$y_target."<br></div>";
-	echo "The solution is marked in <div class=\"solution\">chocolate square</div>. It isnt there? Try to increase the limit.";
+	echo "The solution is marked in <div class=\"solution\">chocolate square</div>. It isnt there? Try to increase the limit (max = 8).";
 	
 	
 	echo "<br>";	
@@ -413,7 +430,7 @@ $levelkondisi_sementara_index=0;
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['x']=$key['x'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['y']=$key['y'];
 						$levelkondisi_next[$levelkondisi_next_index][$levelkondisi_next_index_]['aturan']=$key['aturan'];
-						
+						$ketemu=1;
 						$levelkondisi_next_index_++;
 						echo "</div>";
 					} else {
@@ -459,10 +476,31 @@ $levelkondisi_sementara_index=0;
 		
 		$langkah++;	
 	echo "</div>";
+
+	unset($levelkondisi_next);
 	}
 
 	// echo "<pre>next";
-	// print_r($levelkondisi_next);
+	// print_r($levelkondisi);
+echo "<p>";
+if ($ketemu!=1) {
+	echo "<div style=\"background-color:red;color:white;padding:5px\">Solusi tidak ditemukan<br>";
+	echo "<script type=\"text/javascript\">";
+ 	echo "function gagal(){";
+   	echo "alert('Ruang keadaan (".$x_target.",".$y_target.") tidak dapat ditemukan');";
+	echo "}";
+ 	echo "gagal();";
+	echo "</script>";
+ } else {
+ 	echo "<script type=\"text/javascript\">";
+ 	echo "function gagal(){";
+   	echo "alert('Ruang keadaan (".$x_target.",".$y_target.") berhasil ditemukan');";
+	echo "}";
+ 	echo "gagal();";
+	echo "</script>";
+ }
 echo "<br>[ endofhack ]";
+
+
 ?>
 
